@@ -2,7 +2,7 @@ package classroom;
 
 public class Grupo {
 
-    private Persona[] estudiantes;
+    public Persona[] estudiantes;
     public Persona profesor;
     public Asignatura asignatura;
     public final int codigo;
