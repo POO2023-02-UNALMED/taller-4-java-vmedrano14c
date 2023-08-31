@@ -29,7 +29,7 @@ public class Persona {
 
     public Persona(String nombre) {
     	this.cedula = 0;
-        this.nombre = "";
+        this.nombre = "Sin nombre";
         totalPersonas++;
     }
     
