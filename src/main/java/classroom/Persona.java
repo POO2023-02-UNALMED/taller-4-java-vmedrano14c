@@ -31,11 +31,11 @@ public class Persona {
         totalPersonas++;
     }
 
-//    public Persona(String nombre) {
- //   	this.cedula = 0;
-//        this.nombre = "Sin nombre";
- //       totalPersonas++;
-  //  }
+    public Persona(String nombre) {
+    	this.cedula = 0;
+       this.nombre = "Sin nombre";
+        totalPersonas++;
+    }
     
     public long getCedula() {
         return cedula;
