@@ -1,42 +1,47 @@
 package classroom;
+
 public class Grupo {
-    private String nombre;
-    private List<Estudiante> estudiantes;
-    private List<Asignatura> asignaturas;
-    public Grupo() {
-        this.nombre = "";
-        this.estudiantes = new ArrayList<>();
-        this.asignaturas = new ArrayList<>();
-    }
-    public Grupo(String nombre) {
-        this.nombre = nombre;
-        this.estudiantes = new ArrayList<>();
-        this.asignaturas = new ArrayList<>();
-    }
-    public String getNombre() {
-        return nombre;
-    }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    public List<Estudiante> getEstudiantes() {
-        return estudiantes;
-    }
-    public void setEstudiantes(List<Estudiante> estudiantes) {
+
+    public Persona[] estudiantes;
+    public Persona profesor;
+    public Asignatura asignatura;
+    public final int codigo;
+    public String horario;
+
+    public Grupo(Persona[] estudiantes, Persona profesor, Asignatura asignatura, int codigo, String horario) {
         this.estudiantes = estudiantes;
+        this.profesor = profesor;
+        this.asignatura = asignatura;
+        this.codigo = codigo;
+        this.horario = horario;
     }
-    public List<Asignatura> getAsignaturas() {
-        return asignaturas;
+
+    public Grupo(int cantidadEstudiantes, Persona profesor, Asignatura asignatura, int codigo, String horario) {
+        Persona[] personas = new Persona[cantidadEstudiantes];
+        this.estudiantes= personas;
+        this.profesor = profesor;
+        this.asignatura = asignatura;
+        this.codigo = codigo;
+        this.horario = horario;
     }
-    public void setAsignaturas(List<Asignatura> asignaturas) {
-        this.asignaturas = asignaturas;
+
+    public Grupo(Persona[] estudiantes, Persona profesor, Asignatura asignatura) {
+        this.estudiantes = estudiantes;
+        this.profesor = profesor;
+        this.asignatura = asignatura;
+        this.codigo = 0;
     }
-    @Override
-    public String toString() {
-        return "Grupo{" +
-                "nombre='" + nombre + '\'' +
-                ", estudiantes=" + estudiantes +
-                ", asignaturas=" + asignaturas +
-                '}';
+
+    void cambiarEstudiante(Persona estudianteViejo, Persona estudianteNuevo) {
+        for (int i = 0; i < estudiantes.length; i++) {
+            if (estudiantes[i].getCedula() == estudianteViejo.getCedula()) {
+                estudiantes[i] = estudianteNuevo;
+                break;
+            }
+        }
+    }
+    
+    void cambiarEstudiante(int indice, Persona estudiante) {
+        estudiantes[indice] = estudiante;
     }
 }
